@@ -58,4 +58,26 @@ public class DBUtil {
 
         return blogs;
     }
+
+    public static User getUserByMailPass(String email,String password) {
+        User user = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from users where email = ? and password = ? ");
+
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                user = new User();
+                user.setId(resultSet.getLong("id"));
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setFullName(resultSet.getString("full_name"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } return user;
+    }
 }
