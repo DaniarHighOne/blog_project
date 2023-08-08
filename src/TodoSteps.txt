@@ -1,0 +1,9 @@
+Here I gonna write down some steps which is about to take to build carefully and thoroughly.
+
+1. Check libs and connection to tomcat see that jsp and other connections are work.
+2. Create a DB and check connection to it, cause mostly projects starts with planning db itself.
+3. Create main classes which was given in task.
+4. Create HomeServlet for checking connections and tha will be the main page of blog.
+5. I guess that it will be the List<Blog> show on main page, so we start from it..-->
+6. For admin privilege better add some if checking by email(if User user not to show details and managing tools
+but if email == admin email => show details button for moderating
