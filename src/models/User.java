@@ -6,17 +6,18 @@ public class User {
     private String email;
     private String password;
     private String fullName;
-    private Long roleId;
+    private Integer age;
 
-    public User(Long id, String email, String password, String fullName, Long roleId) {
+    public User(Long id, String email, String password, String fullName, Integer age) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.fullName = fullName;
-        this.roleId = roleId;
+        this.age = age;
     }
 
-    public User(){}
+    public User() {
+    }
 
     public Long getId() {
         return id;
@@ -50,11 +51,11 @@ public class User {
         this.fullName = fullName;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
