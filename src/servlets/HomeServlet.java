@@ -19,7 +19,7 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("currentUser");
         if(user != null) {
-            req.setAttribute("novosti", DBUtil.getBlog());
+            req.setAttribute("novosti", DBUtil.getBlogs());
             req.getRequestDispatcher("home.jsp").forward(req,resp);
         }
         resp.sendRedirect("/sign-in");

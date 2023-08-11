@@ -4,10 +4,7 @@ import models.Blog;
 import models.BlogComments;
 import models.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +27,7 @@ public class DBUtil {
 
     //we need get all blogs, means we get List of them
 
-    public static List<Blog> getBlog(){
+    public static List<Blog> getBlogs(){
         List<Blog> blogs  = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -196,5 +193,30 @@ public class DBUtil {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static void deleteBlogById(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "delete * from blogs where id= ? ");
+            statement.setLong(1, id);
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteCommentByID(Long id) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "delete * from comments where id= ? ");
+            statement.setLong(1 ,id);
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
